@@ -1,0 +1,94 @@
+Nov 30, 2021
+CIS*2430
+Philip Liu
+
+Compiling:
+- cd into ePortfolio
+- javac GUI.java buyInvestment.java getGain.java Investment.java MutualFunds.java searchInvestment.java sellInvestment.java updateInvestment.java Stocks.java
+
+Problem: 
+Create a ePortfolio GUI that collects data into an ArrayLists. The user will use the GUI created to buy, sell, search, update and find the total gain. The program
+will generate a GUI start page where the user will then choose one of the options from the menu bar under command. Then the program will generate the GUI for the 
+corresponding option.
+
+Assumptions:
+- User is inputing based on test cases
+- "buy" should allow the user to input a symbol, a name, quantity and price into an arraylist. if there is a match in the arraylist 
+for symbol then the extra information will be added to the first arraylist. After storing into the arraylist, buy will add the name 
+information into a hashmap.
+- "sell" should allow the user to input a symbol, quantity and price. If there is a match then it will output the total gain based on 
+the quantity that the user sells. If the user selects a quantity that is less than the quantity already in the arraylist then the program
+will sell a portion. If the user selects the whole quantity then the program will sell all.
+- "update" should allow the user to change the prices for each existing investments as well as pick between the investments using the prev
+and next buttons.
+- "getGain" should calculate the total gain for all investments combined as well as the stock and mutual fund gains itself.
+- "search" should allow the user to input a symbol, keywords, low price and high price. The program will then search through the arraylist
+and then output the investment matched. If there isn't a match then the output would be empty.
+- "quit" should exit the GUI
+
+Limitations:
+- When user sells all of an investment the hashmap doesn't remove the index if the investment is deleted (eg. if Bell INC is a invetment
+and bell = 1 while INC = 0,1,2 and you delete bell inc fully. The output would still remain bell= 1 however inc would update to inc=0,1,1). 
+
+User Guide:
+- To test any of the menu options, you can select any from the command menu bar
+- To test each function if it is working you enter in values depending on what the GUI prompts. Eg. if the GUI has symbol beside a textbox
+then type in the symbol in the textbox.
+- To compile the information inputted the user must select one of the buttons which will program the correct output.
+- By selecting quit the program will end.
+
+How to test for correctnes:
+If there are any inputs that aren't followed by the interface then the Exception handling activate and then output a statement.
+
+Possible improvements:
+- Find away to shorten most of the options
+- Use better formatting for outputs
+- Look over error checking more 
+- Take more time on the GUI to make it better
+
+
+TEST CASES:
+Testing Buy (Stock):
+Input: 
+- AAPL for symbol
+- Apple inc for name
+- 100 for quantity
+- 50 for price
+Output: bookValue: 5009.99
+Testing Buy (MutualFund):
+Input:
+- GOOG for symbol
+- Google for name
+- 10 for quantity
+- 100 for price
+Output: bookValue: 1000.00
+
+Testing sell (Portion):
+Input:
+- AAPL for symbol
+- 50 for quantity
+- 50 for price
+Output: Profit: +2490.01
+Testing sell (ALL):
+Input:
+- GOOG for symbol 
+- 10 for quantity
+- 100 for price
+Output: Profit: -45
+
+Testing Update:
+- Use next to get to Apple inc stock
+- Set new price to 100
+- output is now 5009.99
+
+Testing getGain:
+- Total gain should be -19.98
+- Individuals should also be -19.98
+
+Testing Search:
+- AAPL for symbol
+- Apple inc for the key words
+- 50 for lower price
+- 100 for higher price
+Output: The Investment array
+
